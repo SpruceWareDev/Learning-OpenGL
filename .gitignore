@@ -20,3 +20,6 @@
 .gradle/7.1/gc.properties
 .gradle/7.1/fileHashes/fileHashes.lock
 .gradle/7.1/fileChanges/last-build.bin
+*.bin
+*.class
+*.bin

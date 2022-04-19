@@ -1,6 +1,8 @@
 package me.spruce.game.state.states;
 
+import me.spruce.game.components.SpriteRenderer;
 import me.spruce.game.listeners.KeyListener;
+import me.spruce.game.object.GameObject;
 import me.spruce.game.renderer.Camera;
 import me.spruce.game.renderer.Shader;
 import me.spruce.game.renderer.Texture;
@@ -27,6 +29,8 @@ public class GameState extends State {
     private Shader defaultShader;
     private Texture testTexture;
 
+    private GameObject testGameObject;
+
     private float[] vertexArray = {
             //position                  //color                     //UV Coordinates
             60.5f, 0.5f, 0.0f,         1.0f, 0.0f, 0.0f, 1.0f,     1, 1,  //Bottom right
@@ -49,6 +53,10 @@ public class GameState extends State {
 
     @Override
     public void init() {
+        this.testGameObject = new GameObject("test object");
+        this.testGameObject.addComponent(new SpriteRenderer());
+        this.addGameObjectToState(this.testGameObject);
+
         this.camera = new Camera(new Vector2f());
         defaultShader = new Shader("assets/shaders/default.glsl");
         defaultShader.compile();
@@ -126,6 +134,8 @@ public class GameState extends State {
 
     @Override
     public void update(float deltaTime) {
-
+        for(GameObject go : this.gameObjects){
+            go.update(deltaTime);
+        }
     }
 }

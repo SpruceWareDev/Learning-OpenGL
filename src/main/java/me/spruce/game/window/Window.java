@@ -36,6 +36,7 @@ public class Window {
             case 0:
                 currentState = new GameState();
                 currentState.init();
+                currentState.start();
                 currentStateIndex = 0;
                 break;
         }
