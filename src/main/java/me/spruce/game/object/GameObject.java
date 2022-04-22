@@ -6,7 +6,7 @@ import java.util.List;
 public class GameObject {
 
     private String name;
-    private List<Component> components = new ArrayList<>();
+    protected List<Component> components = new ArrayList<>();
 
     public GameObject(String name){
         this.name = name;
